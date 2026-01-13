@@ -31,8 +31,8 @@ let numbers = [1, 2, 3, 5];
 // numbers.push(90)  // ERROR - cannot modify
 console.log(numbers);
 // * `Tuples` : a Tuple is a special type of array that has a fixed number of elements where each element has a specific type. 
-let user = ["Ibraheem", 29, true];
-console.log(user);
+// let user: [string, number, boolean] = ["Ibraheem", 29, true];
+// console.log(user);
 // * Named tuples (Typescript 4.0+)
 // let point: [olusola: number, obafemi: number] = [10,20];
 // // console.log(point[0])
@@ -47,15 +47,13 @@ let optionalTuple = ["hello"];
 let tuple = ["hello", 42, true, false, true];
 let response = [true, "Data fetched", { id: 1 }];
 let message = "Hello";
-const user1 = {
-    id: 101,
-    name: "Alice"
+;
+// * Implimentation 
+const user = {
+    id: 9098,
+    name: "Sodeek",
+    greet() {
+        return `Hello, my name is ${this.name}`;
+    }
 };
-const user2 = {
-    id: "EMP-99",
-    name: "Bob",
-    email: "bob@example.com"
-};
-console.log(user2);
-// *** `Interface` : An Interface in Typescript is a rulebook (or a contract) that defines the structure of an object. 
-// it tells Typescript: "I expect an object to look exactly like this: it must have these properties, and they must be specific types."
+console.log(user.greet());
