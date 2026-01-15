@@ -102,22 +102,22 @@ type Status = "pending" | "approved" | "rejected";
 
 // it tells Typescript: "I expect an object to look exactly like this: it must have these properties, and they must be specific types."
 
-interface IUser{
-    id:UserID;
-    name: string;
-    email?: "string";
-    greet(): string;  
-};
+// interface IUser{
+//     id:UserID;
+//     name: string;
+//     email?: "string";
+//     greet(): string;  
+// };
 
-// * Implimentation 
-const user: IUser = {
-    id: 9098,
-    name : "Sodeek",
-    greet() {
-        return `Hello, my name is ${this.name}`;
-    }
-};
-console.log(user.greet());
+// // * Implimentation 
+// const user: IUser = {
+//     id: 9098,
+//     name : "Sodeek",
+//     greet() {
+//         return `Hello, my name is ${this.name}`;
+//     }
+// };
+// console.log(user.greet());
 
 // ** `never` the never type in Typescript represents a value that will exist or a state that will never be reached. 
 
@@ -174,13 +174,13 @@ const myRole = UserRole["Viewer"];
     let variableName: type = value;
 */
 
-function greet(name: string){
-    return "Hello " + name;
-}
+// function greet(name: string){
+//     return "Hello " + name;
+// }
 
-function add(a: number, b: number): number{
-    return a + b;
-}
+// function add(a: number, b: number): number{
+//     return a + b;
+// }
 
 
 // Type Inference (The "Automatic" Mode)
@@ -246,3 +246,44 @@ const str  = getItem<string>("Hello"); // T = string
 const num  = getItem<number>(42); // T = number
 const bool  = getItem<boolean>(true); // T = boolean
 const arr  = getItem<number[]>([1, 2, 3]); // T = number[]
+
+
+// Function Types & Signatures
+function add(x:number, y:number):number{
+    return x + y;
+}
+console.log("Add:", add(6, 9));
+
+// Function type expression 
+type MathOperation = (a:number, b:number) => number;
+const subtract: MathOperation = (a, b) => a - b;
+console.log("Subtract", subtract(10, 3));
+
+// Added to make code valid. 
+interface User{
+    name: string;
+    age: number;
+}
+
+function createUser(name:string, age?:number): User{
+    return {
+        name,
+        age:age || 18 // Default value handling
+    }
+}
+console.log("Create User (NO, age): ", createUser("Amara"));
+
+
+// Default parameters (better than optional)
+function greet(name:string, greeting:string = "hello"): string{
+    return `${greeting}, ${name}!`;
+}
+
+console.log("Greet (Default):", greet("Ibraheem"));
+
+// Rest parameters
+function sum(...numbers: number[]): number{
+    return numbers.reduce((total, n) => total + n, 0)
+}
+
+console.log("Sum:", sum(1, 2, 3, 4, 5));
