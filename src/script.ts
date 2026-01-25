@@ -287,3 +287,7 @@ function sum(...numbers: number[]): number{
 }
 
 console.log("Sum:", sum(1, 2, 3, 4, 5));
+
+// * oop Typescript
+
+// Object-Oriented Programming (OOP) 
